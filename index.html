@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>VueJS</title>
+    <script src="https://unpkg.com/vue@2.2.4"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="changeTitle">
+        <p>{{title}}</p>
+        <p>{{changeText()}}</p>
+        <p>{{changeOtherText()}}</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello World'
+        },
+        methods: {
+            changeTitle: function(event) {
+                this.title = event.target.value;
+            },
+            changeText: function() {
+                return 'VueJS is great';
+            },
+            changeOtherText: function() {
+                return this.title;
+            }
+        }
+
+    });
+</script>
+</html>
